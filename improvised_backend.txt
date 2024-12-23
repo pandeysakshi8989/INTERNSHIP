@@ -1,0 +1,39 @@
+CONFIG => CONNECTDB.JS , DB.JS 
+1. Environment Variables
+   - Instead of hardcoding the MongoDB URI, I included `process.env.MONGO_URI` to fetch the URI from an environment variable.
+   - This makes the code more secure and portable for different environments (development, staging, production).
+2. Connection Options
+   - Added `useNewUrlParser` and `useUnifiedTopology` for better handling of MongoDB drivers and to suppress deprecation warnings.
+3. Process Termination on Failure:
+   - Added `process.exit(1)` in case of a fatal connection failure. This is useful when you don't want the app to continue running without a database connection.
+
+MIDDLEWARE => AUTH.JS
+1. Check for Proper Header Format
+   - Added a check to ensure the `Authorization` header starts with `Bearer `. This prevents invalid header formats.
+2. Split Header for Better Clarity
+   - Used `split(' ')[1]` to extract the token, ensuring flexibility if the `Bearer` keyword or spacing varies slightly.
+
+MODELS => DOCUMENTS.JS
+1. Validation:
+   - Added validation for `title` and `content` fields with clear error messages and constraints such as length limits for better data consistency.
+2. `collaborators` Field:
+   - Uncommented and incorporated the `collaborators` field, allowing documents to have multiple collaborators.
+   - Stored as an array of `ObjectId`s referencing the `User` model.
+3.`updatedAt` Field:
+   - Added an `updatedAt` field to track the last modification date of the document.
+4. `isArchived` Field:
+   - Introduced an `isArchived` boolean field to support a soft-delete or archiving feature.
+
+MODELS => USER.JS
+1. Field Validation and Constraints:
+   - `name` field: Trimmed and added a maximum length for better usability.
+   - `email` field:
+     - Enforces lowercase email storage for case-insensitive checks.
+     - Added a regular expression to validate email format.
+   - **`password` field:** 
+     - Enforced a minimum length of 8 characters.
+2. Password Hashing:
+   - Enclosed hashing logic in a `try-catch` block for error handling.
+   - Added a condition to skip hashing if the password is not modified.
+3. Authentication:
+   - Added a `matchPassword` method to compare the entered password with the hashed password for login.
