@@ -1,0 +1,78 @@
+Dashboard.js
+
+Key Features Added:
+Navbar: A responsive navigation bar using Bootstrap's Navbar component. You can add links to different sections of your app (e.g., Home, Features, About).
+
+Grid System: The layout is organized with the Bootstrap grid system using Row and Col components to place content in a flexible and responsive layout.
+
+Cards: Used Bootstrap Card components to display different sections of the dashboard:
+
+A "Welcome" card with a call-to-action button (Get Started).
+A "Recent Activity" card to highlight recent actions or updates.
+A "Notifications" card to show notifications or alerts.
+Stats and User Activity cards to display metrics or other relevant info.
+Footer: A simple footer added at the bottom of the page with copyright text.
+
+Styling
+Spacing: Bootstrap's utility classes such as mt-5, mt-4, and py-4 are used for margins and padding to create a clean and consistent layout.
+Responsive Layout: The grid layout adapts to different screen sizes. It shows 3 cards per row on larger screens (thanks to the md={4} setting in Col), and stacks the cards on smaller screens.
+
+DocumentDetails.js
+
+Improvements:
+Document Data Fetching:
+
+I added the logic to fetch document details based on the documentId prop using Axios. When the component mounts, it will make a GET request to the API.
+Loading State:
+
+While the document is being fetched, a loading spinner (<Spinner>) is displayed along with a message: "Loading document details...".
+Error Handling:
+
+If there is an error fetching the document data (e.g., network issues or wrong document ID), an error message is displayed inside a Bootstrap Alert component.
+Document Details:
+
+Once the document is fetched, its details are displayed in a Card component.
+It shows:
+Title: The document's title.
+Author: The author of the document.
+Created On: The creation date of the document, formatted to a readable format.
+Last Updated: The last update date, also formatted.
+Description: A short description of the document.
+Actions:
+
+There are two buttons provided: one for editing the document (Edit Document), and one for deleting it (Delete Document).
+Styling:
+
+The layout uses Bootstrap's Container, Row, Col, Card, and Button components for a clean, responsive design.
+The page is centered with the document details displayed in a card.
+
+Document Form.js
+
+Enhancements Made:
+Form Fields:
+
+I added three fields to the form: title, description, and content for document creation.
+The title, description, and content fields are controlled inputs, meaning their values are stored in the component's state.
+Form Validation:
+
+Before submitting, the form checks if all fields are filled (title, description, and content). If not, an error message is shown to the user: "Please fill in all fields."
+Form Handling:
+
+When the user submits the form, a POST request is made to save the document. The document data is sent to the server (here assumed to be http://localhost:5000/api/documents).
+On success, a success message is displayed, and the form fields are cleared.
+On error, an error message is shown to the user.
+Loading State:
+
+A loading spinner is displayed when the form is being submitted. The button is disabled during the loading state to prevent multiple submissions.
+javascript
+Copy code
+{loading ? <Spinner animation="border" size="sm" /> : 'Create Document'}
+Success and Error Feedback:
+
+Success: After a successful document creation, a success message is shown to the user.
+Error: If there is an issue with the submission (e.g., network issue), an error message is displayed to notify the user.
+Styling with Bootstrap:
+
+Used Bootstrap’s Form, Button, Alert, and Spinner components to style the form and provide a responsive design.
+The Form components are well-organized with Form.Group for better readability.
+
