@@ -1,0 +1,76 @@
+Key Improvements:
+Input Validation:
+
+Check if the amount entered is a valid number using a try-except block to catch non-numeric input.
+Check if all fields (date, category, and amount) are filled before adding an expense.
+Error Handling:
+
+Added try-except blocks around file operations (e.g., reading from or writing to expenses.txt) to catch and handle any issues.
+If there is an error in file reading or writing, the program will show a message in the status label and print the error for debugging.
+File Creation:
+
+If the expenses.txt file doesn't exist, it is created. If there is an issue creating the file, it will raise an error with a message box indicating the problem.
+Clear Status Messages:
+
+The status label is used to indicate success or failure when adding or deleting an expense. It shows error messages in red and success messages in green.
+Additional Notes:
+Tkinter's messagebox: I added an error message box for critical errors like failing to create the expenses.txt file.
+Expense Deletion: Deleting an expense is handled carefully by reading the file, updating it, and writing it back after removing the specific line.
+
+Key Changes:
+Date Validation:
+
+We added a try-except block to check if the date entered is in the correct format (YYYY-MM-DD). If not, the program will show an error message.
+Category Validation:
+
+Ensured that the category field is not empty when adding an expense.
+Expenses Grouped by Month:
+
+In the view_expenses function, we introduced a dictionary expenses_by_month to group the expenses by month (e.g., "January 2025").
+We use strftime("%B %Y") to get the month and year from the datetime object for grouping. Expenses are displayed in the order of the month (sorted by month).
+Improved Data Display:
+
+Expenses are displayed in the treeview, grouped by month.
+Each expense is listed under the appropriate month in the treeview.
+
+Key Changes:
+Multiple Views:
+
+Three new buttons are added to toggle between different views: "View All Expenses", "View Category Expenses", and "View Monthly Expenses".
+Expenses Display Logic:
+
+All Expenses: Displays all expenses with their dates, categories, and amounts.
+Category-Wise Expenses: Groups expenses by category, displaying the total amount for each category.
+Monthly Expenses: Groups expenses by month and year, displaying the total amount for each month.
+Total Display: The total amount for each view is displayed at the bottom in the total_label.
+
+File Handling: Ensures that expenses are saved and read from the expenses.txt file, and groups them based on the view selected.
+
+Changes:
+Date Format: The date input is now expected in the dd-mm-yyyy format. I used datetime.strptime(date, "%d-%m-%Y") to validate the format.
+Expense Parsing: The datetime.strptime call now uses %d-%m-%Y to correctly parse dates in dd-mm-yyyy format.
+File Handling and Date Parsing: When showing monthly expenses, I’ve changed the date parsing format to "%d-%m-%Y" to correctly handle the date input.
+
+Changes:
+Payment Mode:
+
+Added a new input field (payment_mode_combobox) using a ttk.Combobox to select the payment mode (e.g., Cash, Credit Card, Debit Card, Online, etc.).
+This value is saved to the expenses.txt file along with the other expense details.
+Updated File Structure:
+
+The format of each line in the expenses.txt file is now: date, category, amount, payment_mode.
+Updated Table:
+
+The table now displays a new column for the payment mode of each expense.
+Expense Functions:
+
+The add_expense and delete_expense functions have been updated to handle and store the payment mode.
+The show_all_expenses, show_category_expenses, and show_monthly_expenses functions now also display the payment mode.
+
+Key Changes:
+Validation for the number of values in each line: While reading the file, each line is checked for having exactly 4 values (Date, Category, Amount, and Payment Mode). If a line contains fewer values, it is skipped.
+This prevents the error where the program expects 4 values but gets 3.
+
+Key Changes:
+Validation for the number of values in each line: While reading the file, each line is checked for having exactly 4 values (Date, Category, Amount, and Payment Mode). If a line contains fewer values, it is skipped.
+This prevents the error where the program expects 4 values but gets 3. 
