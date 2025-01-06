@@ -1,0 +1,91 @@
+Key Features of the Expense Tracker App:
+User Registration & Login:
+
+Users can register and log in with a username and password.
+Passwords are securely stored and verified against the users.txt file.
+Add Expense:
+
+Logged-in users can add expenses with details such as date, category, amount, and payment method.
+Expenses are saved to the expenses.txt file and are associated with the logged-in user.
+View All Expenses:
+
+Displays all the user's expenses in a table, including date, category, amount, payment method, and user.
+Search Expenses:
+
+Category Search: Users can search for expenses by category.
+Month Search: Users can search for expenses for a specific month (e.g., "January 2025").
+Delete Expense:
+
+Users can delete any expense from the table, which removes it from the expenses.txt file.
+Generate Expense Graphs:
+
+The app can generate two types of graphs:
+Category-wise Expense Graph: A bar chart showing expenses categorized by type.
+Monthly Expense Graph: A bar chart displaying total expenses for each month.
+Compare Expenses Between Users:
+
+Users can compare the total expenses of two users for a specific month in a graph format.
+Logout:
+
+Users can log out, and the UI will update to reflect the logged-out state.
+Main Functionality & Flow:
+Here's how the app works in terms of the main functions:
+
+Registration:
+
+The user enters a username and clicks Register.
+The app checks if the username already exists in users.txt. If not, it adds the username to the file and logs the user in.
+Login:
+
+The user enters the username and password.
+The app verifies the username and password against the users.txt file. If valid, the user is logged in and can add/manage expenses.
+Add Expense:
+
+The user enters the date, category, amount, and payment mode.
+The app validates the inputs and saves the expense to expenses.txt for the logged-in user.
+View Expenses:
+
+The app reads the expenses from expenses.txt and displays them in a table format.
+It calculates the total expenses of the logged-in user and displays it.
+Search Expenses:
+
+Category Search: The user can enter a category and search for related expenses, which are displayed in the table.
+Month Search: The user can enter a month and year (e.g., "January 2025") to view expenses for that month.
+Delete Expense:
+
+The user can select an expense from the table and delete it. The app will remove the corresponding record from expenses.txt.
+Generate Graphs:
+
+Category-wise Graph: A bar chart is displayed showing the total expenses per category.
+Monthly Graph: A bar chart is displayed showing the total expenses per month.
+Compare Users’ Expenses:
+
+Users can compare the expenses of two users for a specific month, and a comparison bar graph will be shown.
+Logout:
+
+The user can log out, which disables access to adding expenses or viewing the expense table until the user logs in again.
+Code Flow Overview:
+Loading Users (load_users):
+
+This function loads all registered users from the users.txt file into the registered_users set.
+User Registration (register):
+
+A new username is saved to the users.txt file if it doesn't already exist. The user is then logged in.
+Login (login):
+
+Checks if the entered username exists and verifies the password. If correct, the user is logged in and the main interface is shown.
+Expense Management:
+
+Add Expense (add_expense): Adds a new expense for the logged-in user.
+Delete Expense (delete_expense): Deletes the selected expense from the table.
+Show All Expenses (show_all_expenses): Displays the expenses in a table, calculating the total.
+Search Functionality:
+
+Category Search (search_category_expenses): Filters expenses by category.
+Month Search (search_monthly_expenses): Filters expenses by month.
+Compare Users' Expenses (compare_users_expenses_month): Compares expenses between two users for a given month.
+Graph Generation:
+
+Category Graph (generate_category_graph): Generates a graph of expenses categorized by type.
+Monthly Graph (generate_month_graph): Generates a graph showing total expenses for each month.
+Comparison Graph (generate_comparison_graph): Displays a bar graph comparing the expenses of two users.

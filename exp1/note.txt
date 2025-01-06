@@ -1,0 +1,28 @@
+Key Features:
+
+Admin Panel: Admin can login and manage user data.
+User Registration & Login: Users can register, login, and reset passwords.
+Expense Management: Users can add, update, delete expenses and view them in a table format.
+Expense Graphs: Graphical representations of category-wise and monthly expenses.
+Expense Comparison: Admin can compare the expenses of two users for a specific category.
+Main Functions:
+
+add_expense: Adds a new expense.
+delete_expense: Deletes an existing expense.
+login_user: Logs in a user based on credentials.
+register_user: Registers a new user.
+compare_expenses: Compares expenses of two users by category.
+Future Scope:
+Multi-Category Search: Ability to search expenses across multiple categories at once.
+Recurring Expenses: Feature to handle recurring expenses.
+Detailed Reporting: Enhanced expense reports with time frames.
+Mobile App: The system can be extended to mobile platforms like Android or iOS.
+
+
+Explanation:
+App class: Manages the flow of the app. It switches between screens based on the user login type (admin or regular user).
+open_login_register: Opens the login/register screen.
+login_success: Handles successful login and routes to either the AdminSystem or ExpenseSystem based on the user’s role.
+open_admin_system & open_expense_system: These methods initialize the respective system screens for admin or regular users.
+logout: Logs out the user and brings them back to the login screen.
+

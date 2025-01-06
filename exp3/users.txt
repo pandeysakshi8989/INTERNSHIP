@@ -1,0 +1,6 @@
+alice:password123
+bob:mysecurepass
+charlie:charlie2025
+diana:diana@123
+bob:mysecurepass
+sakshi:sak123

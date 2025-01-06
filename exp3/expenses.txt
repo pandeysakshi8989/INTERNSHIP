@@ -1,0 +1,8 @@
+01-01-2025,Food,20.50,Cash,alice
+01-01-2025,Transport,10.00,Debit Card,alice
+02-01-2025,Entertainment,50.00,Credit Card,bob
+03-01-2025,Food,15.00,UPI,charlie
+03-01-2025,Utilities,30.00,Cash,diana
+04-01-2025,Food,25.00,Debit Card,alice
+04-01-2025,Transport,15.00,UPI,bob
+08-01-2025,food,1000.0,Online,sakshi

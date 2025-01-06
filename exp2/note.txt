@@ -1,0 +1,56 @@
+Key Features Implemented:
+Login and Register:
+
+Users can register and log in to track their personal expenses.
+The user’s data is stored in users.txt (username and password).
+Track User Expenses:
+
+Each user's expenses are saved in a separate file, expenses_{username}.txt.
+Expense Search:
+
+Users can search for expenses by category.
+Expense Analysis with Graph:
+
+Categories and total expenses are displayed in a bar graph.
+
+New Features Implemented:
+Logout Feature:
+
+Added a "Logout" button that logs the user out by clearing the session and displayed expenses.
+Search by Monthly Expenses:
+
+Added a feature where users can search for expenses by month and year (e.g., "January 2025").
+Generate Monthly Expenses Graph:
+
+A button generates a bar graph for a specific month's expenses, categorized by type.
+Compare Two Months' Expenses in Graph:
+
+The user can compare expenses for two months in a side-by-side bar graph for each category.
+
+New Features Implemented:
+Show Logged-In User's Name:
+
+Display the logged-in username in the top-right corner (Label: logged_in_label).
+Delete Expense Feature:
+
+Users can now select an expense from the Treeview and delete it.
+The deletion updates the expense file and refreshes the displayed expenses.
+Compare Two Users' Expenses:
+
+A button allows users to compare the expenses of two different users.
+A graph is generated comparing the total expenses for each category for both users.
+
+How this works:
+The function generate_monthly_graph reads the expenses from the file and groups them by month and category.
+It uses matplotlib to generate a bar chart of expenses per category for a specific month (you can set the month dynamically if needed).
+The bar chart will display categories on the x-axis and the total expenses for each category on the y-axis.
+
+
+Key Features Included:
+Login/Logout: Ability to log in and log out with the username.
+Expense Addition: User can add expenses with the correct username attached.
+Delete Expense: Ability to delete a selected expense from the list.
+Show All Expenses: View all recorded expenses.
+Monthly Expenses View: Show expenses categorized by month.
+Monthly Graph Generation: Generate bar charts for expenses based on month and category.
+Compare Expenses Between Two Users: Compare the expenses for two users.

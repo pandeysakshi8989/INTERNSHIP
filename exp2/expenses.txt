@@ -1,0 +1,8 @@
+10-12-2024,food,1000.0,Cash,user1
+12-12-2024,transport,100.0,Cash,user1
+01-01-2025,food,500.0,Online,user1
+10-01-2025,transport,200.0,UPI,user1
+20-12-2024,food,100.0,Cash,user2
+25-12-2024,transport,1000.0,Debit Card,user2
+20-01-2025,food ,200.0,Credit Card,user2
+25-01-2025,transport,2000.0,Debit Card,user2
