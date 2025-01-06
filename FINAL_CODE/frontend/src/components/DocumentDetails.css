@@ -1,0 +1,127 @@
+/* DocumentDetails.css */
+
+/* Main container styling */
+.document-details-container {
+    padding: 2rem;
+    background-color: #f4f6f9;
+    font-family: 'Arial', sans-serif;
+    max-width: 900px;
+    margin: 0 auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Title styling */
+.document-title {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    color: #333;
+}
+
+/* Form input fields */
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-label {
+    font-size: 1.1rem;
+    color: #555;
+}
+
+.form-control {
+    font-size: 1rem;
+    padding: 1rem;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    transition: border-color 0.3s;
+}
+
+.form-control:focus {
+    border-color: #6a11cb;
+    outline: none;
+}
+
+/* Alert message styles */
+.alert {
+    font-size: 1rem;
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+}
+
+.alert-success {
+    background-color: #28a745;
+    color: white;
+}
+
+.alert-danger {
+    background-color: #dc3545;
+    color: white;
+}
+
+/* Loading container */
+.loading-container {
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: center;
+    color: #777;
+    padding: 2rem;
+}
+
+/* Action buttons styling */
+.action-buttons {
+    margin-top: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.btn {
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn-primary {
+    background-color: #6a11cb;
+    border: none;
+    color: white;
+}
+
+.btn-danger {
+    background-color: #dc3545;
+    border: none;
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #2575fc;
+    transform: translateY(-3px);
+}
+
+.btn-danger:hover {
+    background-color: #c82333;
+    transform: translateY(-3px);
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+    .document-details-container {
+        padding: 1.5rem;
+    }
+
+    .document-title {
+        font-size: 1.8rem;
+    }
+
+    .form-control {
+        font-size: 0.95rem;
+    }
+
+    .btn {
+        font-size: 1rem;
+        padding: 0.8rem 1.5rem;
+    }
+}

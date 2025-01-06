@@ -1,0 +1,91 @@
+/* Register.css */
+
+/* Centering the registration form */
+.register-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f2f5;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Styling for the registration form container */
+.register-form {
+    background-color: #fff;
+    padding: 2rem 3rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    box-sizing: border-box;
+}
+
+/* Heading styling */
+.register-form h2 {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+/* Input field styling */
+.form-control {
+    border-radius: 8px;
+    padding: 0.8rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.3s ease;
+}
+
+.form-control:focus {
+    border-color: #6a11cb;
+    outline: none;
+}
+
+/* Button styling */
+.btn-block {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1.2rem;
+    background-color: #6a11cb;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-block:hover {
+    background-color: #2575fc;
+}
+
+/* Error message styling */
+.error-message {
+    color: #d9534f;
+    font-size: 1rem;
+    margin-top: 1rem;
+    text-align: center;
+}
+
+/* Login link styling */
+.login-link {
+    color: #6a11cb;
+    font-weight: 600;
+}
+
+.login-link:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Design for smaller screens */
+@media (max-width: 576px) {
+    .register-form {
+        padding: 1.5rem;
+    }
+
+    .register-form h2 {
+        font-size: 1.6rem;
+    }
+}

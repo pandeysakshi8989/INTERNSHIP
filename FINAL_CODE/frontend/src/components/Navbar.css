@@ -1,0 +1,80 @@
+/* Navbar.css */
+
+/* Navbar overall styling */
+.navbar-custom {
+    background-color: #6a11cb; /* Gradient background for the navbar */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 0.8rem 2rem;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Navbar brand logo styling */
+.navbar-brand {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.navbar-brand:hover {
+    color: #ffdd57; /* A soft color for hover effect */
+}
+
+/* Navbar link styling */
+.nav-link {
+    color: white !important;
+    font-size: 1.1rem;
+    padding: 0.8rem;
+    text-transform: capitalize;
+    transition: color 0.3s ease;
+}
+
+/* Active link styling */
+.nav-link.active {
+    color: #ffdd57 !important;
+}
+
+/* Navbar items on hover */
+.nav-link:hover {
+    color: #ffdd57 !important;
+    text-decoration: underline;
+}
+
+/* Styling for the logout button */
+.logout-btn {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: white;
+    text-decoration: none;
+    padding: 0.8rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+/* Logout button hover effect */
+.logout-btn:hover {
+    color: #ffdd57;
+    text-decoration: underline;
+}
+
+/* Styling for the toggle button */
+.navbar-toggler-icon {
+    background-color: white;
+}
+
+/* Responsive navbar for small screens */
+@media (max-width: 768px) {
+    .navbar-custom {
+        padding: 1rem;
+    }
+
+    .navbar-brand {
+        font-size: 1.6rem;
+    }
+
+    .nav-link {
+        font-size: 1.2rem;
+    }
+}

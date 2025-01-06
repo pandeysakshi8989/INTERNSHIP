@@ -1,0 +1,114 @@
+/* Dashboard.css */
+
+/* Main container styling */
+.dashboard-container {
+    padding: 2rem;
+    background-color: #f4f6f9;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Title styling */
+.dashboard-title {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 2rem;
+    color: #333;
+}
+
+/* Document cards container */
+.document-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+/* Individual card styling */
+.card-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 100%;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.card-body {
+    padding: 1.5rem;
+}
+
+.card-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #333;
+}
+
+.card-date {
+    font-size: 1rem;
+    color: #888;
+    margin-bottom: 1.2rem;
+}
+
+/* Button styling for opening the document */
+.btn-primary {
+    background-color: #6a11cb;
+    border: none;
+    color: #fff;
+    padding: 0.8rem 1.5rem;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #2575fc;
+}
+
+/* Button for creating new document */
+.create-btn {
+    background-color: #28a745;
+    color: #fff;
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+.create-btn:hover {
+    background-color: #218838;
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+    .dashboard-container {
+        padding: 1.5rem;
+    }
+
+    .dashboard-title {
+        font-size: 1.8rem;
+    }
+
+    .document-cards {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+
+    .create-btn {
+        font-size: 1rem;
+        padding: 0.8rem 1.5rem;
+    }
+}
