@@ -5,7 +5,7 @@ THIS IS ALL ABOUT MY INTERNSHIPS AND PROJECTS  DURING THAT INTERNSHIPS
     Position: Python Programming Intern
     Duration: 1 Month
     Start Date: 5th December, 2024
-   PROJECTS: QUIZ GAME , WORD COUNTER
+   PROJECTS: QUIZ GAME , WORD COUNTER, EXPENSE TRACKER
 2.  AICTE- Internship on  AI: Transformative Learning with
  TechSaksham – A joint CSR initiative of Microsoft & SAP, focusing on AI Technologies
    Position: Intern
