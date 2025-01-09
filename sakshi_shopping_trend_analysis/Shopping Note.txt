@@ -1,0 +1,175 @@
+Here’s a breakdown of additional exploratory questions and analysis ideas for your dataset. Each includes a brief explanation of how to analyze or visualize the data.
+
+---
+
+### **Extended Questions and Analyses**
+
+#### **1. Age Distribution Analysis**
+- **Question:** What is the distribution of customer ages?
+- **Analysis:** Use a histogram or boxplot to visualize age distribution. Group ages into bins (e.g., 18-25, 26-35).
+  
+```python
+sns.histplot(shop['Age'], bins=10, kde=True)
+plt.title('Age Distribution of Customers')
+plt.xlabel('Age')
+plt.ylabel('Frequency')
+plt.show()
+```
+
+---
+
+#### **2. Category-Based Analysis**
+- **Question:** Which product category generates the highest revenue?
+- **Analysis:** Group by `Category` and sum `Purchase Amount (USD)`.
+
+```python
+category_revenue = shop.groupby('Category')['Purchase Amount (USD)'].sum().sort_values(ascending=False)
+print(category_revenue)
+category_revenue.plot(kind='bar', color='skyblue')
+plt.title('Total Revenue by Product Category')
+plt.xlabel('Category')
+plt.ylabel('Total Revenue (USD)')
+plt.show()
+```
+
+---
+
+#### **3. Gender-Based Spending**
+- **Question:** How does the purchase amount differ between genders?
+- **Analysis:** Use a bar plot to compare average spending between males and females.
+
+```python
+gender_spending = shop.groupby('Gender')['Purchase Amount (USD)'].mean()
+print(gender_spending)
+sns.barplot(x=gender_spending.index, y=gender_spending.values)
+plt.title('Average Purchase Amount by Gender')
+plt.xlabel('Gender')
+plt.ylabel('Average Purchase Amount (USD)')
+plt.show()
+```
+
+---
+
+#### **4. Seasonal Trends**
+- **Question:** Which season has the highest sales volume?
+- **Analysis:** Group data by `Season` and aggregate `Purchase Amount (USD)`.
+
+```python
+seasonal_sales = shop.groupby('Season')['Purchase Amount (USD)'].sum()
+seasonal_sales.plot(kind='bar', color='teal')
+plt.title('Total Sales by Season')
+plt.xlabel('Season')
+plt.ylabel('Total Sales (USD)')
+plt.show()
+```
+
+---
+
+#### **5. Subscription Status Impact**
+- **Question:** Do subscribed customers spend more than non-subscribed ones?
+- **Analysis:** Compare average purchase amounts for `Yes` and `No` in `Subscription Status`.
+
+```python
+subscription_spending = shop.groupby('Subscription Status')['Purchase Amount (USD)'].mean()
+print(subscription_spending)
+sns.barplot(x=subscription_spending.index, y=subscription_spending.values)
+plt.title('Average Spending by Subscription Status')
+plt.xlabel('Subscription Status')
+plt.ylabel('Average Purchase Amount (USD)')
+plt.show()
+```
+
+---
+
+#### **6. Popular Payment Methods**
+- **Question:** What are the most used payment methods?
+- **Analysis:** Use a pie chart or bar chart to show the distribution.
+
+```python
+payment_method_counts = shop['Payment Method'].value_counts()
+payment_method_counts.plot(kind='pie', autopct='%1.1f%%', startangle=90, colors=sns.color_palette("pastel"))
+plt.title('Popular Payment Methods')
+plt.ylabel('')
+plt.show()
+```
+
+---
+
+#### **7. Promo Code Effectiveness**
+- **Question:** Does using a promo code increase the purchase amount?
+- **Analysis:** Compare average spending for `Yes` and `No` in `Promo Code Used`.
+
+```python
+promo_spending = shop.groupby('Promo Code Used')['Purchase Amount (USD)'].mean()
+sns.barplot(x=promo_spending.index, y=promo_spending.values)
+plt.title('Effect of Promo Code Usage on Spending')
+plt.xlabel('Promo Code Used')
+plt.ylabel('Average Purchase Amount (USD)')
+plt.show()
+```
+
+---
+
+#### **8. Customer Loyalty**
+- **Question:** How does the number of previous purchases correlate with spending?
+- **Analysis:** Use a scatter plot to examine relationships.
+
+```python
+sns.scatterplot(x=shop['Previous Purchases'], y=shop['Purchase Amount (USD)'])
+plt.title('Spending vs. Previous Purchases')
+plt.xlabel('Number of Previous Purchases')
+plt.ylabel('Purchase Amount (USD)')
+plt.show()
+```
+
+---
+
+#### **9. Color Preferences**
+- **Question:** What are the most preferred colors by customers?
+- **Analysis:** Count the occurrences of each color and visualize with a bar chart.
+
+```python
+color_counts = shop['Color'].value_counts()
+color_counts.plot(kind='bar', color='coral')
+plt.title('Most Preferred Colors')
+plt.xlabel('Color')
+plt.ylabel('Number of Purchases')
+plt.show()
+```
+
+---
+
+#### **10. Review Ratings**
+- **Question:** How does the average purchase amount vary with review ratings?
+- **Analysis:** Group by `Review Rating` and calculate mean spending.
+
+```python
+rating_spending = shop.groupby('Review Rating')['Purchase Amount (USD)'].mean()
+sns.lineplot(x=rating_spending.index, y=rating_spending.values, marker='o')
+plt.title('Average Spending by Review Rating')
+plt.xlabel('Review Rating')
+plt.ylabel('Average Purchase Amount (USD)')
+plt.show()
+```
+
+---
+
+### **Advanced Questions**
+#### **11. Are discounts more effective for certain categories?**
+Analyze `Discount Applied` by `Category`.
+
+#### **12. Which age group uses promo codes the most?**
+Analyze `Promo Code Used` by age group.
+
+#### **13. Do customers from specific locations have higher average purchase amounts?**
+Analyze `Purchase Amount (USD)` by `Location`.
+
+#### **14. Which sizes are most frequently purchased?**
+Count `Size` frequencies.
+
+#### **15. How does shipping type impact purchase decisions?**
+Analyze `Shipping Type` vs. `Purchase Amount (USD)`.
+
+---
+
+Would you like implementation for any specific question, or should I add more visualizations?
