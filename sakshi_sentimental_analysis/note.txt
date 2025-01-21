@@ -1,0 +1,182 @@
+# prompt: I want to do above with confusion matrix
+
+from sklearn.metrics import confusion_matrix
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+# Assuming y_test and y_predM are already defined from your previous code
+cm = confusion_matrix(y_test, y_predM)
+
+plt.figure(figsize=(8, 6))
+sns.heatmap(cm, annot=True, fmt='d', cmap='Blues',
+            xticklabels=['Negative', 'Positive'],
+            yticklabels=['Negative', 'Positive'])
+plt.xlabel('Predicted')
+plt.ylabel('Actual')
+plt.title('Confusion Matrix for Multinomial Naive Bayes')
+plt.show()
+
+# prompt: I want to do with XBclassifier
+
+from sklearn.ensemble import ExtraTreesClassifier
+
+# Assuming X_train, X_test, y_train, y_test are already defined from your previous code
+
+# Initialize the ExtraTreesClassifier
+etc = ExtraTreesClassifier(n_estimators=100, random_state=0) # You can adjust n_estimators
+
+# Train the classifier
+etc.fit(X_train, y_train)
+
+# Make predictions on the test set
+y_pred_etc = etc.predict(X_test)
+
+# Evaluate the accuracy
+accuracy_etc = accuracy_score(y_test, y_pred_etc)
+print(f"ExtraTreesClassifier Accuracy: {accuracy_etc}")
+
+# Confusion Matrix
+cm_etc = confusion_matrix(y_test, y_pred_etc)
+
+plt.figure(figsize=(8, 6))
+sns.heatmap(cm_etc, annot=True, fmt='d', cmap='Blues',
+            xticklabels=['Negative', 'Positive'],
+            yticklabels=['Negative', 'Positive'])
+plt.xlabel('Predicted')
+plt.ylabel('Actual')
+plt.title('Confusion Matrix for ExtraTreesClassifier')
+plt.show()
+
+# prompt: I want to do with Random Classifier
+
+from sklearn.ensemble import RandomForestClassifier
+
+# Assuming X_train, X_test, y_train, y_test are already defined from your previous code
+
+# Initialize the RandomForestClassifier
+rfc = RandomForestClassifier(n_estimators=100, random_state=0) # You can adjust n_estimators
+
+# Train the classifier
+rfc.fit(X_train, y_train)
+
+# Make predictions on the test set
+y_pred_rfc = rfc.predict(X_test)
+
+# Evaluate the accuracy
+accuracy_rfc = accuracy_score(y_test, y_pred_rfc)
+print(f"RandomForestClassifier Accuracy: {accuracy_rfc}")
+
+# Confusion Matrix
+cm_rfc = confusion_matrix(y_test, y_pred_rfc)
+
+plt.figure(figsize=(8, 6))
+sns.heatmap(cm_rfc, annot=True, fmt='d', cmap='Blues',
+            xticklabels=['Negative', 'Positive'],
+            yticklabels=['Negative', 'Positive'])
+plt.xlabel('Predicted')
+plt.ylabel('Actual')
+plt.title('Confusion Matrix for RandomForestClassifier')
+plt.show()
+
+# prompt: I want to do above with tfid algorithm
+
+import pandas as pd
+from nltk.stem.porter import PorterStemmer
+import nltk
+from nltk.corpus import stopwords
+import re
+import string
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.model_selection import train_test_split
+from sklearn.naive_bayes import GaussianNB,MultinomialNB,BernoulliNB
+from sklearn.metrics import accuracy_score
+from sklearn.metrics import confusion_matrix
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+nltk.download('stopwords')
+
+df = pd.read_csv('/content/Restaurant_Reviews 1.tsv', delimiter = '\t', quoting =3)
+
+corpus = []
+for i in range(0,1000):
+  review = re.sub(pattern = '[^a-zA-Z]', repl =' ', string =df['Review'][i])
+  review= review.lower()
+  review_word = review.split()
+  review_word = [word for word in review_word if not word in set(stopwords.words('english'))]
+  ps = PorterStemmer()
+  review1 = [ps.stem(word) for word in review_word]
+  review = ' '.join(review1)
+  corpus.append(review)
+
+tfidf = TfidfVectorizer(max_features=1500) # Use TfidfVectorizer
+X = tfidf.fit_transform(corpus).toarray()
+y= df.iloc[:,1].values
+
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.20, random_state=104)
+
+clf1 = GaussianNB()
+clf2 = MultinomialNB()
+clf3 = BernoulliNB()
+
+clf1.fit(X_train,y_train)
+clf2.fit(X_train,y_train)
+clf3.fit(X_train,y_train)
+
+y_predG = clf1.predict(X_test)
+y_predM = clf2.predict(X_test)
+y_predB = clf3.predict(X_test)
+
+print("Gussian",accuracy_score(y_test,y_predG))
+print("Multinomial",accuracy_score(y_test,y_predM))
+print("Bernoulli",accuracy_score(y_test,y_predB))
+
+# Assuming y_test and y_predM are already defined
+cm = confusion_matrix(y_test, y_predM)
+
+plt.figure(figsize=(8, 6))
+sns.heatmap(cm, annot=True, fmt='d', cmap='Blues',
+            xticklabels=['Negative', 'Positive'],
+            yticklabels=['Negative', 'Positive'])
+plt.xlabel('Predicted')
+plt.ylabel('Actual')
+plt.title('Confusion Matrix for Multinomial Naive Bayes')
+plt.show()
+
+
+# prompt: I want to do with rfid 
+
+import pandas as pd
+# ... (rest of your imports)
+
+# Assuming you have a dataset with an 'rfid_tag' column
+# Replace 'your_rfid_data.csv' with the actual file path
+df_rfid = pd.read_csv('your_rfid_data.csv')
+
+# Example:  Process RFID data 
+# Assuming your RFID data has a column named 'rfid_tag'
+
+# Function to process a single RFID tag
+def process_rfid(rfid_tag):
+    # Implement your RFID processing logic here.
+    # Example: Check if the tag is valid, look up the tag in a database
+    # or perform some other operations on the tag data.
+
+    # Replace the following line with your processing logic.
+    processed_data = f"Processed: {rfid_tag}"
+    return processed_data
+
+
+# Apply the processing function to each RFID tag
+df_rfid['processed_rfid'] = df_rfid['rfid_tag'].apply(process_rfid)
+
+# Print or use the processed data
+print(df_rfid)
+
+#Example of a simple validity check
+def is_valid_rfid(rfid_tag):
+    #Example validity check (replace with your actual validation)
+    return len(str(rfid_tag)) == 10 and str(rfid_tag).isdigit()
+  
+df_rfid['valid'] = df_rfid['rfid_tag'].apply(is_valid_rfid)
+df_rfid
