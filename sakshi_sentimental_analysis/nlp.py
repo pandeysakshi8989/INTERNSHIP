@@ -10,6 +10,9 @@ Original file is located at
 import pandas as pd
 from nltk.stem.porter import PorterStemmer
 
+#from google.colab import drive
+#drive.mount('/content/drive')
+
 import nltk
 from nltk.corpus import stopwords
 nltk.download('stopwords')
@@ -24,8 +27,10 @@ df["Review"][0]
 
 df.info()
 
+df.columns
+
 import re
-import string
+#import string
 
 corpus = []
 for i in range(0,1000):
@@ -35,17 +40,28 @@ for i in range(0,1000):
   review_word = [word for word in review_word if not word in set(stopwords.words('english'))]
   ps = PorterStemmer()
   review1 = [ps.stem(word) for word in review_word]
+  #Join the stemmed words back into a single string
   review = ' '.join(review1)
   corpus.append(review)
+
+set (stopwords.words('english'))
 
 corpus[:1000]
 
 df.shape
 
+from sklearn.feature_extraction.text import TfidfVectorizer
+
+vectorizer = TfidfVectorizer()
+X = vectorizer.fit_transform(corpus)
+
+tfid_df = pd.DataFrame(X.todense(), columns=vectorizer.get_feature_names_out())
+print(tfid_df.tail(30))
+
 from sklearn.feature_extraction.text import CountVectorizer
 cv = CountVectorizer(max_features=1500)
 
-df['Review']
+df['review']
 
 X = cv.fit_transform(corpus).toarray()
 
@@ -55,7 +71,9 @@ X[0]
 
 X[0].max()
 
-y= df.iloc[:,1].values
+y= df.iloc[:,1].values.astype(int) # Convert y to integer type
+
+#y= df.iloc[:,1].values
 
 y.shape
 
@@ -256,3 +274,4 @@ def is_valid_rfid(rfid_tag):
 
 df_rfid['valid'] = df_rfid['Review'].apply(is_valid_rfid)
 df_rfid
+
